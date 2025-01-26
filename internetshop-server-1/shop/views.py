@@ -90,18 +90,25 @@ def payment(request, id):
     product = Product.objects.filter(id=id).first()
 
     if request.method == "POST":
-        name = request.POST.get('name')
+        user = request.user
         address = request.POST.get('address')
-        phone = request.POST.get('phone')
-        email = request.POST.get('email') 
+        communication = request.POST.get('phone')
+
+        about_customer = f"""
+юзернейм: {user.username}
+Электронная почта: {user.email}
+Дата регистрации: {user.date_joined}
+Текущий баланс: {user.balance}
+        """
 
         bot.send_message(CHAT_ID, f'''Новый заказ: {product.name}
 Цена: {product.price} баллов
+Заказчик: {about_customer}
 
-Имя: {name}
 Адрес: {address}
-Телефон: {phone}
-Email: {email}
+
+Способ связи: {communication}
+
 ''')
         return redirect('/success')
 

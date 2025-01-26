@@ -5,4 +5,4 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ('username', 'password', 'is_active', 'balance')
+        fields = ('username', 'password1',"password2", "email")
