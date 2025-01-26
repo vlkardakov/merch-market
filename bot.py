@@ -11,8 +11,8 @@ def pithon(code):
     global result
     try:
         local_vars = {}
-        exec(code, {}, local_vars)  # Используем локальный словарь для хранения переменных
-        return local_vars.get('result')  # Возвращаем значение переменной result
+        exec(code, {}, local_vars)
+        return local_vars.get('result')
     except:
         pass
 

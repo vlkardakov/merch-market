@@ -10,27 +10,21 @@
     <img class="productImage" src="{{ product.image_url }}">
     <h2>К оплате: {{ product.price }} рублей</h2>
     <div class="vspace"></div>
-    <h3>Реквизиты для перевода:</h3>
-    <h2>+78005553535</h2>
-    <h2>Иванов И. И.</h2>
+    <h3>Теперь вы готовы купить:</h3>
+
     <div class="vspace"></div>
     <form class="paymentForm" method="post">
         {% csrf_token %}
 
-        <label for="name">Ваше ФИО:</label>
-        <input type="text" name="name" id="name" required>
-
         <label for="address">Адрес доставки:</label>
         <input type="text" name="address" id="address" required>
 
-        <label for="phone">Номер телефона:</label>
+        <label for="phone">Как нам связаться с Вами? </label>
         <input type="text" name="phone" id="phone" required>
 
-        <label for="email">Электронная почта:</label>
-        <input type="email" name="email" id="email" required>
 
         <div class="vspace"></div>
-        <button class="paymentButton" type="submit">Оплатил    (Нажимать 1 раз)</button>
+        <button class="paymentButton" type="submit">Оплатить!</button>
     </form>
 </div>
 

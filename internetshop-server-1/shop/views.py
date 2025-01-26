@@ -48,6 +48,44 @@ def view_product(request, id):
         'reviews': reviews,
     })
 
+from django.shortcuts import render, redirect
+from django_telegram_login.widgets.constants import (
+    SMALL, MEDIUM, LARGE
+)
+from django_telegram_login.widgets.generator import (
+    create_callback_login_widget
+)
+from django_telegram_login.authentication import verify_telegram_authentication
+
+def telegram_login(request):
+    telegram_login_widget = create_callback_login_widget(
+        bot_name='Мерч Маркет',
+        size=MEDIUM,
+        user_photo=True
+    )
+    return render(request, 'telegram_login.html', {'telegram_login_widget': telegram_login_widget})
+
+def telegram_callback(request):
+    result = verify_telegram_authentication(bot_token='7316556593:AAE0UAuEkVc_anc08EN16AxR_OdcTZ5C67I', request_data=request.GET)
+    if result:
+        from django.contrib.auth import login
+        from .models import CustomUser
+
+        def telegram_callback(request):
+            result = verify_telegram_authentication(bot_token='7316556593:AAE0UAuEkVc_anc08EN16AxR_OdcTZ5C67I   ', request_data=request.GET)
+            if result:
+                telegram_id = result['id']
+                user, created = CustomUser.objects.get_or_create(telegram_id=telegram_id)
+                login(request, user)
+                return redirect('/')
+            else:
+                return redirect('login')
+
+        return redirect('/')
+    else:
+        return redirect('login')
+
+
 def payment(request, id):
     product = Product.objects.filter(id=id).first()
 
@@ -81,12 +119,11 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_approved = False
+            user.is_active = False
             user.save()
-
-            bot = telegram.Bot(token='7844571279:AAHiaKLNOQZeUkOVlfM7k_mUzARoEDCNNu4')
+            
             admin_chat_id = '6901083609'
-            message = f"Подтвержите регистрацию:\nФИО: {user.full_name}\nюзернейм: {user.username}"
+            message = f"Подтвержите регистрацию:\nюзернейм: {user.username}"
             bot.send_message(chat_id=admin_chat_id, text=message)
 
             return redirect('waiting_approval')

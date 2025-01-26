@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Product, Review
+from django.contrib.auth.admin import UserAdmin
+from .models import Product, Review, CustomUser
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -8,11 +9,14 @@ class ProductAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
     pass
 
-from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser
 
-admin.site.register(CustomUser, UserAdmin)
+class CustomUserAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email', 'balance', 'is_active')  # Добавляем поле в отображение
+    fields = ('username', 'email', 'balance', 'is_active')  # Добавляем поле в редактирование
+
+admin.site.register(CustomUser, CustomUserAdmin)
+
 # Register your models here.
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Review, ReviewAdmin)

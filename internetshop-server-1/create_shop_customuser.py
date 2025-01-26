@@ -7,6 +7,7 @@ cursor = conn.cursor()
 # Удаление таблиц, если они существуют
 cursor.execute('DROP TABLE IF EXISTS shop_customuser_groups')
 cursor.execute('DROP TABLE IF EXISTS shop_customuser')
+cursor.execute('DROP TABLE IF EXISTS shop_customuser_user_permissions')
 
 # Создание таблицы shop_customuser
 cursor.execute('''
@@ -22,8 +23,6 @@ CREATE TABLE shop_customuser (
     is_staff BOOLEAN NOT NULL,
     is_active BOOLEAN NOT NULL,
     date_joined TIMESTAMP NOT NULL,
-    full_name VARCHAR(255) NOT NULL,
-    birth_date DATE NOT NULL,
     is_approved BOOLEAN NOT NULL,
     UNIQUE(username)
 )
@@ -40,8 +39,19 @@ CREATE TABLE shop_customuser_groups (
 )
 ''')
 
+# Создание таблицы shop_customuser_user_permissions
+cursor.execute('''
+CREATE TABLE shop_customuser_user_permissions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customuser_id INTEGER NOT NULL,
+    permission_id INTEGER NOT NULL,
+    FOREIGN KEY (customuser_id) REFERENCES shop_customuser(id),
+    FOREIGN KEY (permission_id) REFERENCES auth_permission(id)
+)
+''')
+
 # Сохранение изменений и закрытие соединения
 conn.commit()
 conn.close()
 
-print("Таблицы shop_customuser и shop_customuser_groups успешно пересозданы.")
+print("Таблицы shop_customuser, shop_customuser_groups и shop_customuser_user_permissions успешно пересозданы.")

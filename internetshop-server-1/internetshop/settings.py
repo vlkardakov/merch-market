@@ -36,9 +36,15 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://vlkardakov.ru']
 
+TELEGRAM_BOT_NAME = 'Мерч маркет'
+TELEGRAM_BOT_TOKEN = '7316556593:AAE0UAuEkVc_anc08EN16AxR_OdcTZ5C67I'
+TELEGRAM_LOGIN_REDIRECT_URL = 'https://vlkardakov.ru/'
+
+
 # Application definition
 
 INSTALLED_APPS = [
+    'django_telegram_login',
     'shop',
     'django.contrib.admin',
     'django.contrib.auth',
