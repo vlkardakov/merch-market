@@ -86,7 +86,7 @@ def register(request):
 
             bot = telegram.Bot(token='7844571279:AAHiaKLNOQZeUkOVlfM7k_mUzARoEDCNNu4')
             admin_chat_id = '6901083609'
-            message = f"Подтвержите регистрацию:\nФИО: {user.full_name}\nДата рождения: {user.birth_date}\nюзернейм: {user.username}"
+            message = f"Подтвержите регистрацию:\nФИО: {user.full_name}\nюзернейм: {user.username}"
             bot.send_message(chat_id=admin_chat_id, text=message)
 
             return redirect('waiting_approval')
