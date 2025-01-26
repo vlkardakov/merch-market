@@ -252,20 +252,22 @@ button {
 }
 
 
+
 .paymentCard {
     margin-top: 20px;
-
     margin-left: auto;
     margin-right: auto;
     width: 30%;
     text-align: center;
-
     border-radius: 20px;
-    background: #1a1a1a;
-
+    background: rgba(26, 26, 26, 0.8); /* Прозрачный фон */
     padding: 10px;
+    color: white; /* Цвет текста */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.vspace {
+    margin-bottom: 20px;
 @keyframes rotate {
     from {
         transform: rotate(0deg);
