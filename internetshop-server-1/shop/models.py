@@ -9,7 +9,6 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     full_name = models.CharField(max_length=255, verbose_name="ФИО")
-    #birth_date = models.DateField(verbose_name="Дата рождения")
     is_approved = models.BooleanField(default=False, verbose_name="Подтвержден администратором")
 
 

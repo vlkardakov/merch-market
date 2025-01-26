@@ -1,6 +1,16 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h2>Ваш запрос на регистрацию отправлен администратору.</h2>
-<p>Ожидайте подтверждения.</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiting for Approval</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'waiting.css' %}">
+</head>
+<body>
+    {% block content %}
+    <h2>РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ СЃРєРѕСЂРѕ РїСЂРёРјРµС‚ РІР°С€Сѓ Р·Р°СЏРІРєСѓ.</h2>
+    <p>РћР¶РёРґР°Р№С‚Рµ</p>
+    {% endblock %}
+</body>
+</html>

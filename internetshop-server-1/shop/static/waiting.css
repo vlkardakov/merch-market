@@ -1,0 +1,14 @@
+/* waiting.css */
+h2 {
+    font-size: 40px;
+    transform: rotate(20deg);
+    margin-top: 350px;
+    margin-left: 20px;
+}
+
+p {
+    font-size: 60px;
+    transform: rotate(-10deg);
+    margin-top: 100px;
+    margin-left: 260px;
+}
