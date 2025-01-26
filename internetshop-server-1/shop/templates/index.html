@@ -4,11 +4,11 @@
 
     <div class="navigation">
         <a href="/" class="cancel" title="Cancel">
-            <img src="https://www.neimark-it.ru/images/tild3830-6338-4164-b634-363635666138__vector.png" alt="Logo" width="400" height="76">
+            <img src="https://imgur.com/PSKTfY0.jpeg" alt="Logo" width="200" height="200">
         </a>
         <a class="navlink" href="/">Home</a>
-        <a class="navlink" href="/products">Products</a>
-        <a class="navlink" href="/aboutus">About Us</a>
+        <a class="navlink" href="/products">Продукты</a>
+        <a class="navlink" href="/aboutus">О нас</a>
     </div>
 
     <form class="filter" onsubmit="return searchProducts()">
@@ -23,10 +23,10 @@
     <div class="productList">
         {% for product in products %}
         <div class="product">
-            <img class="productPreview" src="{{ product.image_url }}" alt="{{ product.name }}"/>
+            <img class="productPreview" src="{{ product.image_url }}" alt="{{ product.name }}" style="width:192px; height:256px;"/>
             <div class="productDetails">
-                <h2>{{ product.name }}</h2>
-                <p>{{ product.description }}</p>
+                <h2 class="productTitle">{{ product.name }}</h2>
+                <p class="productDescription">{{ product.description }}</p>
             </div>
             <div class="price">
                 <h3>${{ product.price }}</h3>
@@ -36,15 +36,6 @@
             </div>
         </div>
         {% endfor %}
-        
-        {% if not products_found %}
-            <div class="no-products">
-                <svg viewBox="0 0 20 20" fill="currentColor" height="200" width="200">
-                    <path d="M4 2h16l-3 9H4a1 1 0 100 2h13v2H4a3 3 0 010-6h.33L3 5 2 2H0V0h3a1 1 0 011 1v1zm1 18a2 2 0 110-4 2 2 0 010 4zm10 0a2 2 0 110-4 2 2 0 010 4z" />
-                </svg>
-                <p>No products found.</p>
-            </div>
-        {% endif %}
     </div>
 
     <script>
