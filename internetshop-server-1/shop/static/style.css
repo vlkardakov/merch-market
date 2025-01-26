@@ -31,13 +31,15 @@ h1 {
     max-height: 50%;
 }
 
+
+
 .product {
     display: flex;
     flex-direction: row;
 
     min-height: 250px;
     margin-top: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     padding: 10px;
 
@@ -93,12 +95,22 @@ button {
     text-align: center;
 }
 
+.productTitle h1 {
+    color: white;
+}
+
+.productPrice h3 {
+    color: white;
+}
+
+.productPrice a button {
+    color: white;
+}
+
 .productDetails {
     margin-top: 20px;
-
+    background-color: rgba(255, 255, 255, 1)
     border-radius: 20px;
-
-    background: white;
     display: flex;
     flex-direction: row;
 

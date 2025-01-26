@@ -68,9 +68,9 @@ def payment(request, id):
 ''')
         return redirect('/success')
 
-    return render(request, "payment.html", {
-        'product': product
-    })
+    #return render(request, "payment.html", {
+        #'product': product
+    #})
 
 def success(request):
     return render(request, 'success.html')

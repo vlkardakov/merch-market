@@ -27,15 +27,17 @@
 
     <div class="productList">
         {% for product in products %}
-        <div class="product">
+        <div class="product" style="background-color: rgba(255, 255, 255, 0.5);">
             <a href="/product/{{ product.id }}">
                 <img class="productPreview" src="{{ product.image_url }}" alt="{{ product.name }}" style="width:192px; height:256px;"/>
             </a>
-            <div class="productDetails">
-                <a href="/product/{{ product.id }}">
+            <div class="productDetails" style="background-color: rgba(255, 255, 255, 0);">
+                <a href="/product/{{ product.id }}" style="background-color: rgba(255, 255, 255, 0);">
                     <h2 class="productTitle">{{ product.name }}</h2>
                 </a>
-                <a href="/product/{{ product.id }}">
+                <br>
+                <br>
+                <a href="/product/{{ product.id }}" style="background-color: rgba(255, 255, 255, 0);">
                     <p class="productDescription">{{ product.description }}</p>
                 </a>
             </div>
@@ -46,6 +48,7 @@
                 </a>
             </div>
         </div>
+
         {% endfor %}
     </div>
     <script async src="https://telegram.org/js/telegram-widget.js?2"

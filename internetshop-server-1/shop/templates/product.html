@@ -1,9 +1,10 @@
 {% autoescape on %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">я
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
     <div class="navigation">
 
-    <h1><span style="color: #05016a">Нет</span>Магазин</h1>
+    <h1><span style="color: #05016a">НеАт</span>Магазин</h1>
 
     <a class="navlink" href="/">Главная</a>
     <a class="navlink" href="/products">Товары</a>
@@ -12,7 +13,9 @@
     </div>
 
     <div class="productDetails">
-        <img class="productImage" src="{{ product.image_url }}">
+        <a href="/product/{{ product.id }}">
+            <img class="productImage" src="{{ product.image_url }}" alt="{{ product.name }}" style="width:1280px; height:960px;"/>
+        </a>
         <div class="productTitle">
             <h1>{{ product.name }}</h1>
             <div class="productPrice">
