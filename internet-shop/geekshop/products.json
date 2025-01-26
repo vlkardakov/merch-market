@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Cтул",
+        "description": "Стул номер 1",
+        "image": "img/product-11.jpg"
+    },
+    {
+        "name": "Cтул 2",
+        "description": "Стул номер 2",
+        "image": "img/product-21.jpg"
+    },
+    {
+        "name": "Стул 3",
+        "description": "Стул номер 3",
+        "image": "img/product-31.jpg"
+    }
+]

@@ -1,0 +1,73 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="hero-white">
+	<div class="header clearfix">
+		{% include 'mainapp/includes/inc_main_menu.html' %}
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="details">
+
+	{% include 'mainapp/includes/inc_categories_menu.html' %}
+
+	{% if hot_product %}
+	<div class="details-products">
+		<div class="details-slider">
+			<div class="slider-product">
+				<img src="{{ hot_product.image.url }}">
+			</div>
+			<div class="slider-control">
+				<div class="block">
+					<a href="#"><img src="{% static "img/controll.jpg" %}" alt="">
+						<div class="text"></div>
+					</a>
+				</div>
+				<div class="block">
+					<a href="#"><img src="{% static "img/controll1.jpg" %}" alt="">
+						<div class="text"></div>
+					</a>
+				</div>
+				<div class="block">
+					<a href="#"><img src="{% static "img/controll2.jpg" %}" alt="">
+						<div class="text"></div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="description">
+			<h3 class="big-bold">{{ hot_product.name }}</h3>
+			<h3 class="red">горячее предложение</h3>
+			<p class="price"> {{ hot_product.price }} <span>руб</span></p>
+			{% if user.is_authenticated %}
+				<a href="{% url 'basket:add' hot_product.id %}" class="red-button">
+			{% else %}
+				<a href="{% url 'auth:login' %}" class="red-button">
+			{% endif %}
+				заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
+			</a>
+			<div class="description-text">
+				{{ hot_product.description|linebreaks }}
+			</div>
+		</div>
+	</div>
+	{% endif %}
+
+	{% if products %}
+	<div class="related">
+		<div class="title clearfix">
+			<h2>Похожие продукты</h2>
+			<a class="explore" href="#">показать все <img src="{% static "img/arrow.png" %}" alt=""></a>
+		</div>
+		<div class="related-products clearfix">
+			{% include 'mainapp/includes/inc_products.html' %}
+
+		</div>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

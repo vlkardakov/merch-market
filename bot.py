@@ -2,7 +2,7 @@ import telebot
 import time
 import os
 
-TOKEN = '7316556593:AAE0UAuEkVc_anc08EN16AxR_OdcTZ5C67I'
+TOKEN = '7844571279:AAHiaKLNOQZeUkOVlfM7k_mUzARoEDCNNu4'
 bot = telebot.TeleBot(TOKEN)
 
 print("imported")
@@ -17,10 +17,23 @@ def pithon(code):
         pass
 
 
-
 @bot.message_handler(commands=['start'])
-def start_message(message):
-    bot.reply_to(message, "Что нада?")
+def send_welcome(message):
+    bot.reply_to(message, message.chat.id)
+    bot.register_next_step_handler(message, process_user_message)
+
+therds = []
+
+anscounter = 0
+
+
+def process_user_message(message):
+    print(f"{message.text=}")
+    t = message.text
+    t = input(f"Пользователь: {t}\n")
+    bot.reply_to(message, t)
+    bot.register_next_step_handler(message, process_user_message)
+
 
 if __name__ == "__main__":
     bot.polling()
