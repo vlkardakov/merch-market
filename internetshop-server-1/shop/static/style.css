@@ -1,338 +1,206 @@
-@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('/static/fonts/custom_font.ttf') format('truetype');
+}
+
+img {
+  border-radius: 10px;
+}
 
 html, body {
-    background: url('/static/BACKGROUND.jpg') no-repeat center center fixed;
-    background-size: cover;
-    padding: 0;
-    margin: 0;
-}
-
-
-* {
-    font-family: "Didact Gothic";
-}
-
-h1 {
-    font-size: 40px;
-    color: #0021f3;
-    font-style: italic;
-    margin: 0;
-
-    margin-right: 40px;
-}
-
-.productPreview {
-    width: 200px;
-    height: 200px;
-}
-
-.productImage {
-    max-width: 50%;
-    max-height: 50%;
-}
-
-
-
-.product {
-    display: flex;
-    flex-direction: row;
-
-    min-height: 250px;
-    margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    padding: 10px;
-
-    width: 60%;
-}
-
-
-.productList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-button {
-    margin-left: auto;
-}
-
-.navigation {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    padding: 0;
-    margin: 0;
-    height: 70px;
+  background: url('/static/BACKGROUND2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+  font-family: 'Gramatika-Medium', sans-serif;
+  text-decoration: none;
 }
 
 a {
-    color: black;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  color: white;
 }
 
-.navlink {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #0021f3;
-    font-size: 20px;
-    cursor: pointer;
+h1, h2, h3, p, label {
+  margin: 10px 0;
+  font-weight: normal;
+  color: white;
+  font-family: 'Gramatika-Medium', sans-serif;
+  text-decoration: none;
 }
 
-button {
-    height: 50px;
-    width: 100px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+.white-text {
+    color: white;
+}
+
+/* Стили для навигации */
+.navigation {
+  background-color: #f8f9fa; /* Светло-серый фон */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation a {
+  color: #0021f3; /* Синий цвет ссылок */
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navigation img {
+  margin-right: 20px; /* Отступ справа от логотипа */
+}
+
+
+/* Стили для блока с продуктами */
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product {
+  width: 200px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+
+  padding: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.productTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.productDescription {
+  font-size: 16px;
+  margin-bottom: 10px;
+  max-width: 300px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  color: white;
+  line-height: 1.6;
+  text-align: left;
+  white-space: normal;
+  height: 100px;
+  overflow: hidden; /* Скрывает лишний текст */
 }
 
 .price {
-    margin-left: auto;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.productTitle h1 {
-    color: white;
+.price h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
-.productPrice h3 {
-    color: white;
+.price button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 5px;
 }
 
-.productPrice a button {
-    color: white;
-}
-
-.productDetails {
-    margin-top: 20px;
-    background-color: rgba(255, 255, 255, 1)
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row;
-
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.productPrice {
-    display: flex;
-    flex-direction: row;
-}
-
-.productTitle {
-    margin-top: 20px;
-}
-
-.productTitle * {
-    font-style: normal;
-    margin-bottom: 20px;
-}
-
-.productDescription {
-    margin-top: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-    border-radius: 20px;
-    background: white;
-
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+.price button:hover {
+  background-color: #0056b3;
 }
 
 
-
-
-.productDescription * {
-    margin: 20px;
+/* Стиль для формы оплаты */
+.paymentCard {
+  width: 300px;
+  margin: 20px auto;
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  overflow: hidden; /* Скрывает лишний текст */
 }
 
-.filter {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    background: white;
-    border-radius: 20px;
-    padding: 10px;
-    margin-top: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.paymentForm input, .paymentForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
 }
 
-.searchInput {
-    font-size: 20px;
-    border: none;
-    background-color: #efefef;
-    padding: 11px;
-    border-radius: 10px;
-    width: 100%;
-    margin-right: 10px;
+.paymentForm label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
 }
 
 .paymentButton {
-    width: 100%;
-    background-color: blue;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .paymentButton:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #0056b3;
 }
 
-.paymentButton:active {
-    position: relative;
+.filter {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: rgba(26, 26, 26, 0.8);
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
 
-.paymentButton:active::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 255, 0.2); /* Darker blue waves */
-    animation: wave 0.4s ease;
-}
-
-@keyframes wave {
-    0% {
-        transform: scale(0);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(2);
-        opacity: 0;
-    }
-}
-
-
-.review {
-    background-color: #efefef;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.createReview {
-    display: flex;
-    flex-direction: column;
-}
-
-.createReview * {
-    margin: 0 !important;
-    padding: 0 !important;
-
-    font-size: 20px;
-    border: none;
-    padding: 11px;
-    border-radius: 10px;
-}
-
-.createReview input {
-    background-color: #e0e0e0;
-    padding: 5px !important;
-}
-
-.createReview select {
-    background-color: #e0e0e0;
-    padding: 5px !important;
-}
-
-
-.createReview textarea {
-    background-color: #e0e0e0;
-}
-
-.createReview button {
-    width: fit-content;
-    margin-top: 10px !important;
-    margin-left: auto !important;
-    padding: 10px !important;
-}
-
-
-
-.paymentCard {
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-    text-align: center;
-    border-radius: 20px;
-    background: rgba(26, 26, 26, 0.8); /* Прозрачный фон */
-    padding: 10px;
-    color: white; /* Цвет текста */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.vspace {
-    margin-bottom: 20px;
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.rotating-symbol img {
-    display: inline-block;
-    animation: rotate 2s linear infinite;
-}
-
-
-.vspace {
-    height: 10px;
-}
-
-
-.productTitle {
-    font-size: 50px;
-    font-weight: bold;
-    margin-top: -55px;
-}
-.productDetails {
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-
-
-.productDescription {
-    font-size: 25px;
-    margin-left: 2px;
-    color: #555;
-}
-
-
-.paymentForm {
-    display: flex;
-    flex-direction: column;
-}
-
-.paymentForm input {
-    background-color: #e0e0e0;
-    padding: 5px !important;
-
-    font-size: 20px;
-    border: none;
-    padding: 11px;
-    border-radius: 10px;
+.searchInput {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }

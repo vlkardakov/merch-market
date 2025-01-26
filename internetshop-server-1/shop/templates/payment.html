@@ -8,28 +8,26 @@
 <div class="paymentCard">
     <h2>Товар: {{ product.name }}</h2>
     <img class="productImage" src="{{ product.image_url }}">
-    <h2>К оплате: {{ product.price }} рублей</h2>
+    <h2>К оплате: {{ product.price }} Баллов</h2>
     <div class="vspace"></div>
     <h3>Теперь вы готовы купить:</h3>
 
     <div class="vspace"></div>
     <form class="paymentForm" method="post">
         {% csrf_token %}
-
-        <label for="address">Адрес доставки:</label>
+        <label for="address" class="white-text">Адрес доставки:</label>
         <br>
         <input type="text" name="address" id="address" required>
         <br>
         <br>
-        <label for="phone">Как нам связаться с Вами? </label>
+        <label for="phone" class="white-text">Как нам связаться с Вами? </label>
         <br>
-
         <input type="text" name="phone" id="phone" required>
-
-
         <div class="vspace"></div>
         <button class="paymentButton" type="submit">Оплатить!</button>
     </form>
+
+
 </div>
 
 <script>

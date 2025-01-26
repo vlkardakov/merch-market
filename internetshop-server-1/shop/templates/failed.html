@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<div class="navigation">
+
+<h1><span style="color: #05016a">НЕЙ</span>МАРК</h1>
+
+
+</div>
+
+<div class="paymentCard">
+    <h1>Недостаточно баллов!</h1>
+    <h3>Товар не может быть оплачен :(</h3>
+</div>
+
+<script>
+    setTimeout(() => {
+        document.location = '/';
+    }, 3000);
+</script>
