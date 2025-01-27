@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'register.css' %}">
 </head>
 
-
 <body>
     <div class="navigation">
         <a class="navlink" href="/profile">Профиль</a>
@@ -23,26 +22,18 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                <input type="text" id="username" name="username" required>
-                <label for="username">- имя пользователя</label>
-
+                <input type="text" id="username" name="username" required placeholder="Введите имя пользователя">
             </div>
             <div class="form-group">
-                <input type="password" id="password1" name="password1" required>
-                <label for="password1">- пароль</label>
-
+                <input type="password" id="password1" name="password1" required placeholder="Введите пароль">
             </div>
             <div class="form-group">
-                <input type="password" id="password2" name="password2" required>
-                <label for="password2">- подтверждение пароля</label>
-
+                <input type="password" id="password2" name="password2" required placeholder="Подтвердите пароль">
             </div>
             <div class="form-group">
-                <input type="email" id="email" name="email" required>
-                <label for="email">- электронная почта</label>
-
+                <input type="email" id="email" name="email" required placeholder="Введите электронную почту">
             </div>
-            <button type="submit">Зарегистрироваться</button>
+            <button type="submit" class="register-btn">Зарегистрироваться</button>
         </form>
     </div>
 </body>
