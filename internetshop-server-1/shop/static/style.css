@@ -105,7 +105,7 @@ h1, h2, h3, p, label {
 .productDescription {
   font-size: 16px;
   margin-bottom: 10px;
-  max-width: 300px;
+  max-width: 500px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   color: white;
