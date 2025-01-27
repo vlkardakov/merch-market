@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Gramatika-Medium';
+    src: url('/static/fonts/custom_font.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    background: url('/static/BACKGROUND2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    font-family: 'Gramatika-Medium', sans-serif;
+    color: white;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+    cursor: pointer;
+}
+
+h1, h2, h3, p, label {
+    margin: 10px 0;
+}
+
+.navigation {
+    background-color: rgba(26, 26, 26, 0.8);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation a {
+    color: #0021f3;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.navigation h1 {
+    flex: 1;
+}
+
+.highlight {
+    color: #05016a;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-details {
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 1280px;
+    border-radius: 10px;
+}
+
+.product-title {
+    margin: 20px 0;
+}
+
+.product-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buy-button, .publish-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.buy-button:hover, .publish-button:hover {
+    background-color: #0056b3;
+}
+
+.product-description {
+    max-width: 600px;
+    margin: 20px 0;
+    background-color: rgba(26, 26, 26, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.review {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.negative-rating {
+    color: red;
+}
+
+.positive-rating {
+    color: green;
+}
+
+.create-review {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-review input, .create-review select, .create-review textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
