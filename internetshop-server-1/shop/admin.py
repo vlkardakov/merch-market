@@ -12,8 +12,8 @@ class ReviewAdmin(admin.ModelAdmin):
 from .models import CustomUser
 
 class CustomUserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'balance', 'is_active')  # Добавляем поле в отображение
-    fields = ('username', 'email', 'balance', 'is_active')  # Добавляем поле в редактирование
+    list_display = ('username', 'email', 'balance', 'is_active','is_staff', 'is_superuser','first_name','last_name')
+    fields = ('username', 'email', 'balance', 'is_active','is_staff', 'is_superuser','first_name','last_name')
 
 admin.site.register(CustomUser, CustomUserAdmin)
 

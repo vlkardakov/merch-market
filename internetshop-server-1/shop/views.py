@@ -5,6 +5,8 @@ from .models import Product, Review
 import telebot
 import os
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
+
 
 BOT_TOKEN = "7508512512:AAHOuu8klbbKR6AL-5Q4qgD_bBmHHLPZLNI"
 CHAT_ID = "6901083609"
@@ -123,20 +125,24 @@ def telegram_callback(request):
 
 def payment(request, id):
     product = Product.objects.filter(id=id).first()
+    try:
+        if request.method == "POST":
+            user = request.user
+            address = request.POST.get('address')
+            communication = request.POST.get('phone')
 
-    if request.method == "POST":
-        user = request.user
-        address = request.POST.get('address')
-        communication = request.POST.get('phone')
+            if user.balance >= product.price:
+                user.balance -= product.price
+                user.save()
 
-        about_customer = f"""
+                about_customer = f"""
 юзернейм: {user.username}
 Электронная почта: {user.email}
 Дата регистрации: {user.date_joined}
 Текущий баланс: {user.balance}
-        """
+            """
 
-        bot.send_message(CHAT_ID, f'''Новый заказ: {product.name}
+                bot.send_message(CHAT_ID, f'''Новый заказ: {product.name}
 Цена: {product.price} баллов
 Заказчик: {about_customer}
 
@@ -145,16 +151,38 @@ def payment(request, id):
 Способ связи: {communication}
 
 ''')
-        return redirect('/success')
+                return redirect('/success')
+            else:
+                return render(request, 'payment_failed.html', {'product': product})
 
-    return render(request, "payment.html", {
-        'product': product
-    })
+        return render(request, "payment.html", {
+            'product': product
+        })
+    except:
+        return redirect('/login')
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import CustomUserCreationForm
 import telegram
+
+from django.contrib.auth.models import User
+from django.contrib.admin.views.decorators import staff_member_required
+from django.shortcuts import redirect, get_object_or_404
+from django.http import HttpResponseForbidden
+
+
+@staff_member_required
+def approve_user(request, username):
+    if not request.user.is_superuser:
+        return HttpResponseForbidden("У вас нет прав для выполнения этой операции.")
+
+    user_to_approve = get_object_or_404(User, username=username)
+    user_to_approve.is_active = True
+    user_to_approve.save()
+
+    return redirect('/success')  # Перенаправление на страницу успешного завершения
+
 
 def register(request):
     if request.method == 'POST':
@@ -165,7 +193,7 @@ def register(request):
             user.save()
             
             admin_chat_id = '6901083609'
-            message = f"Подтвержите регистрацию:\nюзернейм: {user.username}"
+            message = f"Подтвердите регистрацию:\nюзернейм: {user.username}"
             bot.send_message(chat_id=admin_chat_id, text=message)
 
             return redirect('waiting_approval')
@@ -175,6 +203,7 @@ def register(request):
 
 def waiting_approval(request):
     return render(request, 'waiting_approval.html')
+
 
 def success(request):
     return render(request, 'success.html')

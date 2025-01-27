@@ -1,11 +1,14 @@
 .container {
+    height: 600px;
     background-color: rgba(26, 26, 26, 0.8);
-    padding: 30px;
+    padding: 50px; /* Уменьшите значение padding */
     padding-top: 47px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box; /* Включение padding и border в общую высоту и ширину */
 }
+
 
 form {
     display: flex;
@@ -32,6 +35,7 @@ button.register-btn:hover {
 }
 
 .form-group {
+    min-width: 80px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;

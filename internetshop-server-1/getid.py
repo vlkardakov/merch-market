@@ -1,7 +1,5 @@
 import telebot
 import os
-
-# Замените 'YOUR_BOT_TOKEN' на токен вашего бота
 BOT_TOKEN = os.getenv("BOT_TOKEN") or "7508512512:AAHOuu8klbbKR6AL-5Q4qgD_bBmHHLPZLNI"
 
 bot = telebot.TeleBot(BOT_TOKEN)
