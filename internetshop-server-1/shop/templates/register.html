@@ -1,8 +1,49 @@
-{% block content %}
-<h2>Регистрация</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Зарегистрироваться</button>
-</form>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.5">
+    <title>Регистрация</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+</head>
+
+
+<body>
+    <div class="navigation">
+        <a class="navlink" href="/profile">Профиль</a>
+        <a href="/" class="logo" title="logo">
+            <img src="https://imgur.com/WHY5bWR.png" alt="Logo" width="277" height="48">
+        </a>
+        <a class="navlink" href="/admin">Админка</a>
+    </div>
+    <div class="container">
+        <h2>Регистрация</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" id="username" name="username" required>
+                <label for="username">- имя пользователя</label>
+
+            </div>
+            <div class="form-group">
+                <input type="password" id="password1" name="password1" required>
+                <label for="password1">- пароль</label>
+
+            </div>
+            <div class="form-group">
+                <input type="password" id="password2" name="password2" required>
+                <label for="password2">- подтверждение пароля</label>
+
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" required>
+                <label for="email">- электронная почта</label>
+
+            </div>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -2,7 +2,12 @@
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
 <div class="navigation">
-    <h1><span style="color: #05016a">Нет</span>Магазин</h1>
+    <a class="navlink" href="/profile">Профиль</a>
+    <a href="/" class="logo" title="logo">
+        <img src="https://imgur.com/WHY5bWR.png" alt="Logo" width="277" height="48">
+    </a>
+    <a class="navlink" href="/admin">Админка</a>
+
 </div>
 
 <div class="paymentCard">
@@ -24,9 +29,10 @@
         <br>
         <input type="text" name="phone" id="phone" required>
         <div class="vspace"></div>
+        <div>
+
         <button class="paymentButton" type="submit">Оплатить!</button>
     </form>
-
 
 </div>
 

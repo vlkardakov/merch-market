@@ -2,7 +2,14 @@ from django.urls import path
 
 from . import views
 
+from django.urls import path
+from . import views
+
+
+
 urlpatterns = [
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
     path("", views.home, name="home"),
     path("product/<int:id>", views.view_product, name="view_product"),
     path("payment/<int:id>", views.payment, name='payment'),
